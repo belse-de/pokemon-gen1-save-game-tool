@@ -4,7 +4,7 @@
 #include <cstdint>
 #include <cereal/cereal.hpp>
 
-#include "../traits.h"
+#include "../traits.hpp"
 
 struct Coordinate{
     std::uint8_t y;

@@ -11,9 +11,25 @@
 
 namespace fs = std::filesystem;
 
-#include "src/types.hpp"
+#include "src/memory/sram.hpp"
+#include "src/traits.hpp"
 
 
+#include <cstdint>
+union bits_uint8_t {
+    std::uint8_t ui;
+    struct bit8{
+        unsigned b0:1;
+        unsigned b1:1;
+        unsigned b2:1;
+        unsigned b3:1;
+        unsigned b4:1;
+        unsigned b5:1;
+        unsigned b6:1;
+        unsigned b7:1;
+    } b;
+};
+static_assert (is_standard_layouted_trivial_aggregate<bits_uint8_t>::value);
 
 
 #include <cassert>

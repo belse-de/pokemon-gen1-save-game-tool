@@ -1,10 +1,12 @@
 #ifndef BITARRAY_HPP
 #define BITARRAY_HPP
 
-#include <cstddef>
-#include <cstdlib>
+#include <cstddef> // offsetof, std::size_t
+
 #include <array>
-#include "../traits.h"
+#include <string>
+
+#include "../traits.hpp"
 
 
 struct BitArrayPos

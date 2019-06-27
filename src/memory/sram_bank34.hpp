@@ -1,7 +1,9 @@
 #ifndef SRAM_BANK34_HPP
 #define SRAM_BANK34_HPP
 
-#include "../traits.h"
+#include <cereal/cereal.hpp>
+
+#include "../traits.hpp"
 #include "../constans.hpp"
 #include "../types/pokemon.hpp" //FIXME
 

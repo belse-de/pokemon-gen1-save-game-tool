@@ -12,10 +12,10 @@
 
 template <typename T>
 struct le_uint{
-    uint8_t raw[sizeof(T)];
+    std::uint8_t raw[sizeof(T)];
 
     le_uint& set(T val){
-        for(size_t i=0; i < sizeof(T); ++i){
+        for(std::size_t i=0; i < sizeof(T); ++i){
             raw[i] = val & (0xFFu << ((sizeof(T) - 1 - i) * 8u));
         }
         return *this;
@@ -27,7 +27,7 @@ struct le_uint{
 
     operator T() const{
         T res = 0;
-        for(size_t i=0; i < sizeof(T); ++i){
+        for(std::size_t i=0; i < sizeof(T); ++i){
             res += raw[i] << ((sizeof(T) - 1 - i) * 8u);
         }
         return res;
@@ -35,7 +35,7 @@ struct le_uint{
 };
 
 
-using le_uint8_t  = le_uint<uint8_t>;
+using le_uint8_t  = le_uint<std::uint8_t>;
 using le_uint16_t = le_uint<uint16_t>;
 using le_uint32_t = le_uint<uint32_t>;
 using le_uint64_t = le_uint<uint64_t>;

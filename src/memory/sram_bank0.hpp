@@ -1,7 +1,9 @@
 #ifndef SRAM_BANK0_HPP
 #define SRAM_BANK0_HPP
 
-#include "../traits.h"
+#include <cereal/cereal.hpp>
+
+#include "../traits.hpp"
 #include "../constans.hpp"
 #include "../types/hall_of_fame.hpp"
 

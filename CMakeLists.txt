@@ -7,7 +7,6 @@ add_library(stdc++fs UNKNOWN IMPORTED)
 set_property(TARGET stdc++fs PROPERTY IMPORTED_LOCATION "/usr/lib/libstdc++fs.a")
 
 add_executable(pokeSaveGameTool main.cpp
-        src/types.hpp
         src/constans.hpp
         src/check_size.hpp
         src/mem_manipulation.hpp
@@ -19,10 +18,12 @@ add_executable(pokeSaveGameTool main.cpp
         src/types/string.cpp src/types/string.hpp
         src/types/uint_LE.hpp
         src/types/hall_of_fame.hpp
-        src/types/bitarray.cpp
         src/types/bitarray.hpp
         src/types/coordinate.hpp
-        src/traits.h
+        src/types/pokedex.hpp
+        src/types/movement.hpp
+
+        src/traits.hpp
         src/memory/sram.hpp
         src/memory/sram_bank0.hpp
         src/memory/sram_bank1.hpp

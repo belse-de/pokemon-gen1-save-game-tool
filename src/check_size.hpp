@@ -10,6 +10,8 @@
 #define TO_XSTR(x) TO_STR(x)
 #define TO_STR(x) #x
 
+#define SASSERT_EQU(a,b, msg) static_assert((a) == (b), msg ": " ##a " != " ##b)
+
 // src: https://stackoverflow.com/questions/19696942/better-message-for-static-assert-on-object-size
 // usage: static_assert( validate_size< int, 4 >::value, "Oops" );
 template< typename Type, std::size_t ExpectedSize, std::size_t ActualSize = 0 >

@@ -1,11 +1,16 @@
 #ifndef SRAM_BANK1_MAIN_DATA_HPP
 #define SRAM_BANK1_MAIN_DATA_HPP
 
-#include "../traits.h"
+#include <cereal/cereal.hpp>
+
+#include "../traits.hpp"
 #include "../constans.hpp"
 #include "../types/coordinate.hpp"
 #include "../types/name.hpp"
 #include "../types/pokemon.hpp" //FIXME
+#include "../types/pokedex.hpp"
+#include "../types/movement.hpp"
+#include "../types/item.hpp"
 
 // offset in safe 0x2598
 struct MainData {
@@ -163,7 +168,6 @@ struct MainData {
                //CEREAL_NVP(_2852),
                CEREAL_NVP(time_played)//,
                //CEREAL_NVP(_2CF2),
-
               );
     }
 };

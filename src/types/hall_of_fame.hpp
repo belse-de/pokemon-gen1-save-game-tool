@@ -1,9 +1,11 @@
 #ifndef HALL_OF_FAME_H
 #define HALL_OF_FAME_H
 
-#include <type_traits>
+#include <cstddef> // offsetof, std::size_t
+
 #include <cereal/cereal.hpp>
 
+#include "../traits.hpp"
 #include "../constans.hpp"
 #include "name.hpp"
 
@@ -23,7 +25,7 @@ struct HOF_PokeMon {
   }
 };
 
-static_assert(std::is_standard_layout<HOF_PokeMon>::value);
+static_assert(is_standard_layouted_trivial_aggregate<HOF_PokeMon>::value);
 static_assert(std::is_aggregate<HOF_PokeMon>::value);
 static_assert(std::is_trivial<HOF_PokeMon>::value);
 static_assert(sizeof(HOF_PokeMon) == HALL_OF_FAME_MON);
