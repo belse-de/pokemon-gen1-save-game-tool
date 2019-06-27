@@ -1,8 +1,6 @@
 #ifndef BITARRAY_HPP
 #define BITARRAY_HPP
 
-#include <iostream>
-
 #include <cstddef>
 #include <cstdlib>
 #include <array>

@@ -21,7 +21,14 @@ add_executable(pokeSaveGameTool main.cpp
         src/types/hall_of_fame.hpp
         src/types/bitarray.cpp
         src/types/bitarray.hpp
+        src/types/coordinate.hpp
         src/traits.h
+        src/memory/sram.hpp
+        src/memory/sram_bank0.hpp
+        src/memory/sram_bank1.hpp
+        src/memory/sram_bank1_main_data.hpp
+        src/memory/sram_bank34.hpp
+
         )
 
 target_link_libraries(pokeSaveGameTool stdc++fs)
