@@ -3,7 +3,7 @@
 
 #include <cstdint>
 
-#include "../traits.h"
+#include "../traits.hpp"
 
 enum struct MovementType : std::uint8_t{
     Walking = 0,

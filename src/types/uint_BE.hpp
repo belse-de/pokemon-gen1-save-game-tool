@@ -5,18 +5,18 @@
 #ifndef POKESAVEGAMETOOL_UINT_BE_HPP
 #define POKESAVEGAMETOOL_UINT_BE_HPP
 
+#include <cstddef> // offsetof, std::size_t
 #include <cstdint>
-#include <cstddef>
-#include <type_traits>
+
 #include <cereal/cereal.hpp>
 
 template <typename T>
 struct be_uint{
-    uint8_t raw[sizeof(T)];
+    std::uint8_t raw[sizeof(T)];
     static constexpr T value_type{0};
 
     be_uint& set(T val){
-        for(size_t i=0; i < sizeof(T); ++i){
+        for(std::size_t i=0; i < sizeof(T); ++i){
             raw[i] = val & (0xFFu << ((sizeof(T) - 1 - i) * 8u));
         }
         return *this;
@@ -51,11 +51,11 @@ struct be_uint{
 };
 
 struct be_uint24_t{
-    uint8_t raw[3];
+    std::uint8_t raw[3];
     static constexpr uint32_t value_type{0};
 
     be_uint24_t& set(uint32_t val){
-        for(size_t i=0; i < sizeof(raw); ++i){
+        for(std::size_t i=0; i < sizeof(raw); ++i){
             raw[i] = val & (0xFFu << ((sizeof(raw) - 1u - i) * 8u));
         }
         return *this;
@@ -64,20 +64,20 @@ struct be_uint24_t{
     //TODO: check trait unsigned; operator<< is not well defined for signed
     //TODO: replace 8u with char/byte width
 
-    uint32_t get() const{
+    std::uint32_t get() const{
         return *this;
     }
 
-    operator uint32_t() const{
-        uint32_t res = 0;
-        for(size_t i=0; i < sizeof(raw); ++i){
+    operator std::uint32_t() const{
+        std::uint32_t res = 0;
+        for(std::size_t i=0; i < sizeof(raw); ++i){
             res += raw[i] << ((sizeof(raw) - 1u - i) * 8u);
         }
         return res;
     }
 
     template<class Archive>
-      uint32_t save_minimal(Archive const&) const
+      std::uint32_t save_minimal(Archive const&) const
       {
         return *this;
       }
@@ -89,10 +89,10 @@ struct be_uint24_t{
       }
 };
 
-using be_uint8_t  = be_uint<uint8_t>;
-using be_uint16_t = be_uint<uint16_t>;
-using be_uint32_t = be_uint<uint32_t>;
-using be_uint64_t = be_uint<uint64_t>;
+using be_uint8_t  = be_uint<std::uint8_t>;
+using be_uint16_t = be_uint<std::uint16_t>;
+using be_uint32_t = be_uint<std::uint32_t>;
+using be_uint64_t = be_uint<std::uint64_t>;
 
 static_assert(std::is_standard_layout<be_uint8_t>::value);
 static_assert(std::is_aggregate<be_uint8_t>::value);

@@ -15,7 +15,7 @@ struct PlayerPokeDex{
       archive( CEREAL_NVP(owned), CEREAL_NVP(seen) );
     }
 };
-static_assert( sizeof(PlayerPokeDex) == 2 * 19 );
 static_assert(is_standard_layouted_trivial_aggregate<PlayerPokeDex>::value);
+static_assert( sizeof(PlayerPokeDex) == 2 * 19 );
 
 #endif // POKEDEX_HPP

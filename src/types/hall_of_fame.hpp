@@ -26,8 +26,6 @@ struct HOF_PokeMon {
 };
 
 static_assert(is_standard_layouted_trivial_aggregate<HOF_PokeMon>::value);
-static_assert(std::is_aggregate<HOF_PokeMon>::value);
-static_assert(std::is_trivial<HOF_PokeMon>::value);
 static_assert(sizeof(HOF_PokeMon) == HALL_OF_FAME_MON);
 static_assert(offsetof(HOF_PokeMon, ID) == 0x00);
 static_assert(offsetof(HOF_PokeMon, level) == 0x01);
@@ -43,9 +41,7 @@ struct HOF_Record {
   }
 };
 
-static_assert(std::is_standard_layout<HOF_Record>::value);
-static_assert(std::is_aggregate<HOF_Record>::value);
-static_assert(std::is_trivial<HOF_Record>::value);
+static_assert(is_standard_layouted_trivial_aggregate<HOF_Record>::value);
 static_assert(sizeof(HOF_Record) == HALL_OF_FAME_TEAM);
 static_assert(offsetof(HOF_Record, team) == 0x00);
 
@@ -59,9 +55,7 @@ struct HallOfFame {
   }
 };
 
-static_assert(std::is_standard_layout<HallOfFame>::value);
-static_assert(std::is_aggregate<HallOfFame>::value);
-static_assert(std::is_trivial<HallOfFame>::value);
+static_assert(is_standard_layouted_trivial_aggregate<HallOfFame>::value);
 static_assert(sizeof(HallOfFame) == HALL_OF_FAME_TEAM * HALL_OF_FAME_TEAM_CAPACITY);
 static_assert(offsetof(HallOfFame, records) == 0x00);
 

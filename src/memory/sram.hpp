@@ -50,11 +50,11 @@ static_assert(offsetof(SRAM_SaveFile, bank1.box_active) == 0x30C0);
 static_assert(offsetof(SRAM_SaveFile, bank1.tileset_type) == 0x3522);
 static_assert(offsetof(SRAM_SaveFile, bank1.main_data_checksum) == 0x3523);
 
-static_assert(offsetof(SRAM_SaveFile, bank2.boxses0) == 0x4000);
-static_assert(offsetof(SRAM_SaveFile, bank2._5A53) == 0x5A53);
+static_assert(offsetof(SRAM_SaveFile, bank2.boxses) == 0x4000);
+static_assert(offsetof(SRAM_SaveFile, bank2._unused) == 0x5A53);
 
-static_assert(offsetof(SRAM_SaveFile, bank3.boxses1) == 0x6000);
-static_assert(offsetof(SRAM_SaveFile, bank3._7A53) == 0x7A53);
+static_assert(offsetof(SRAM_SaveFile, bank3.boxses) == 0x6000);
+static_assert(offsetof(SRAM_SaveFile, bank3._unused) == 0x7A53);
 
 
 static_assert(offsetof(SRAM_SaveFile, bank1.main_data.pokedex) == 0x25A3);

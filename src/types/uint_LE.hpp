@@ -5,9 +5,9 @@
 #ifndef POKESAVEGAMETOOL_UINT_LE_HPP
 #define POKESAVEGAMETOOL_UINT_LE_HPP
 
-
+#include <cstddef> // offsetof, std::size_t
 #include <cstdint>
-#include <cstddef>
+
 #include <type_traits>
 
 template <typename T>
@@ -36,9 +36,9 @@ struct le_uint{
 
 
 using le_uint8_t  = le_uint<std::uint8_t>;
-using le_uint16_t = le_uint<uint16_t>;
-using le_uint32_t = le_uint<uint32_t>;
-using le_uint64_t = le_uint<uint64_t>;
+using le_uint16_t = le_uint<std::uint16_t>;
+using le_uint32_t = le_uint<std::uint32_t>;
+using le_uint64_t = le_uint<std::uint64_t>;
 
 static_assert(std::is_standard_layout<le_uint8_t>::value);
 static_assert(std::is_aggregate<le_uint8_t>::value);
